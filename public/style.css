@@ -14,6 +14,7 @@
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
   --color-black: #000000;
+  --homebackground-color-black: rgb(3, 4, 13);
 
   /* Font size */
   --font-large: 48px;
@@ -96,7 +97,7 @@ p {
 
 .section {
   text-align: center;
-  padding: 50px;
+  padding: 100px;
   margin: auto;
 }
 
@@ -168,11 +169,131 @@ p {
 
 /* Summary */
 #summary {
+  display: flex;
   height: 100vh;
-  background: url("imgs/home-background.jpg") center/cover no-repeat;
+  background: rgb(3, 4, 13);
   padding: 400px 100px;
   color: var(--color-light-white);
   position: relative;
+  border-bottom: 100px;
+}
+
+.map__img {
+  position: relative;
+  width: 800px;
+}
+
+.night,
+.popu,
+.traff,
+.divi {
+  position: absolute;
+  top: -400px;
+  left: 150px;
+  width: 100%;
+}
+
+.divi {
+  animation: first 40s linear infinite;
+}
+
+.popu {
+  animation: second 40s linear infinite;
+}
+
+.night {
+  animation: third 40s linear infinite;
+}
+
+.traff {
+  animation: fourth 40s linear infinite;
+}
+
+@keyframes first {
+  0% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  35% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes second {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes third {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fourth {
+  0% {
+    opacity: 0.5;
+  }
+  10% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes color {
+  0% {
+    background-color: #03030b;
+  }
+  100% {
+    background-color: white;
+  }
 }
 
 .summary__description {
@@ -180,7 +301,8 @@ p {
 }
 
 .summary__title {
-  max-width: 500px;
+  max-width: 600px;
+  margin-bottom: 50px;
 }
 
 .summary__entrance {
@@ -204,17 +326,13 @@ p {
   font-size: 18px;
 }
 
-.arrow__down {
-  position: absolute;
-  color: var(--color-white);
-  font-size: var(--font-regular);
-  bottom: -24%;
-  left: 30%;
-}
-
 /* About */
 #about {
-  background-color: var(--color-black);
+  background-color: var(--homebackground-color-black);
+}
+
+.section__container h1 {
+  margin-bottom: 100px;
 }
 
 .aboutset {
@@ -222,9 +340,13 @@ p {
 }
 
 .korea__description {
-  display: block;
-  color: var(--color-light-white);
-  background-color: var(--color-dark-grey);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: left;
+  font-size: var(--font-large);
+  color: var(--color-white);
+  background-color: var(--homebackground-color-black);
 }
 
 .korea__description {
@@ -233,6 +355,8 @@ p {
 
 .korea__map {
   flex-basis: 40%;
+  border: 6px solid rgb(55, 43, 226);
+  border-radius: var(--size-border-radius);
 }
 
 .korea__map img {
@@ -243,7 +367,8 @@ p {
 /* contact */
 
 #contact {
-  background-color: var(--color-black);
+  background-color: rgb(3, 4, 13);
+  font-style: italic;
 }
 
 .contact__title,
@@ -265,4 +390,19 @@ p {
 .contact__links i:hover {
   transform: scale(1.1);
   color: var(--color-yellow);
+}
+
+/* For below 1180px screen width */
+@media (max-width: 1180px) {
+  .map__img {
+    display: none;
+  }
+
+  #summary {
+    padding-left: 10;
+    padding-right: 0;
+  }
+  .summary__title {
+    max-width: 800px;
+  }
 }
