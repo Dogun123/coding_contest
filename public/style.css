@@ -352,15 +352,22 @@ p {
 
 #about__content {
   display: flex;
+  align-items: baseline;
 }
 
 #about__title {
   padding-right: 40px;
 }
 
-.about__value {
+.about__value,
+.unit {
   font-style: italic;
   letter-spacing: 10px;
+}
+
+.unit {
+  font-size: var(--font-medium);
+  vertical-align: bottom;
 }
 
 .korea__map {
