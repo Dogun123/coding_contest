@@ -347,10 +347,20 @@ p {
   font-size: var(--font-large);
   color: var(--color-white);
   background-color: var(--homebackground-color-black);
+  flex-basis: 60%;
 }
 
-.korea__description {
-  flex-basis: 60%;
+#about__content {
+  display: flex;
+}
+
+#about__title {
+  padding-right: 40px;
+}
+
+.about__value {
+  font-style: italic;
+  letter-spacing: 10px;
 }
 
 .korea__map {
