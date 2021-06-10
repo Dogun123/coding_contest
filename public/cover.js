@@ -21,7 +21,7 @@ numberCounter.prototype.counter = function() {
     this.diff = this.target_count - this.count;
      
     if(this.diff > 0) {
-        self.count += Math.ceil(this.diff / 5);
+        self.count += Math.ceil(this.diff / 7);
     }
      
     this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -34,9 +34,28 @@ numberCounter.prototype.counter = function() {
 };
 
 
-new numberCounter("population__value",51821669);
-new numberCounter("area__value",100210);
-new numberCounter("gdp__value",164218000);
+// 인구,면적,gdp 숫자 증가 기능
+var num_count = false;
+var timerId = setInterval(function() {
+    if(num_count == true) {
+        setTimeout(function(){
+            new numberCounter("population__value",51821669);
+            new numberCounter("area__value",100210);
+            new numberCounter("gdp__value",164218000);
+        },300);
+        clearInterval(timerId);
+    }
+}, 100);
+
+document.addEventListener('scroll',()=>{
+    console.log(window.scrollY);
+    if (window.scrollY > 500) {
+        num_count = true;
+    }
+})
+
+
+
 
 
 
