@@ -409,6 +409,13 @@ p {
   color: var(--color-yellow);
 }
 
+/* home.html */
+
+#home__html {
+  background: url(imgs/busan-night.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
 /* For below 1180px screen width */
 @media (max-width: 1180px) {
   .map__img {
