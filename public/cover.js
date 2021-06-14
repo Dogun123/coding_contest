@@ -48,11 +48,23 @@ var timerId = setInterval(function() {
 }, 100);
 
 document.addEventListener('scroll',()=>{
-    console.log(window.scrollY);
     if (window.scrollY > 500) {
         num_count = true;
     }
 })
+
+// 스크롤 함수
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior:"smooth"});
+    selectNavItem(navItems[sectionIds.indexOf(selector)]);    
+};
+
+
+
+
+
+
 
 
 
