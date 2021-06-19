@@ -112,6 +112,7 @@ p {
   top: 60px;
   right: -5px;
   display: none;
+  z-index: 1;
 }
 
 .dropdown_menu.open {
@@ -378,10 +379,71 @@ p {
 
 .home__menu__container {
   display: flex;
+  position: relative;
+  padding-left: 30px;
+  padding-top: 200px;
 }
 
 .home__menu {
+  margin-left: 60px;
   color: var(--color-white);
+  text-align: center;
+}
+
+.home__theme {
+  font-size: 30px;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin-bottom: 5px;
+  background-color: #7c7979;
+}
+
+.home__sub__theme__container {
+  margin-top: 10px;
+}
+
+.home__sub__theme {
+  margin-bottom: 20px;
+}
+
+.home__sub__theme a:hover {
+  color: cyan;
+}
+
+.angle__down {
+  position: relative;
+  animation-name: angle__down;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+  animation-fill-mode: none;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: rgb(226, 130, 159);
+}
+
+@keyframes angle__down {
+  0% {
+    top: 0px;
+  }
+  10% {
+    top: 2px;
+  }
+
+  20% {
+    top: 0px;
+  }
+
+  30% {
+    top: 2px;
+  }
+
+  40% {
+    top: 0px;
+  }
 }
 
 .map__img {
