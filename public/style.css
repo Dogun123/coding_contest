@@ -122,6 +122,10 @@ p {
   padding-bottom: 10px;
 }
 
+.detail_menu a:hover {
+  color: cyan;
+}
+
 /* Navbar */
 
 #navbar {
@@ -166,6 +170,10 @@ p {
   transform: translateX(-30%);
   background-color: var(--color-blue);
   opacity: 0;
+}
+
+.line.open {
+  opacity: 1;
 }
 
 .nav__links--item:hover .line {
