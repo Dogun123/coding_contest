@@ -376,6 +376,14 @@ p {
   display: flex;
 }
 
+.home__menu__container {
+  display: flex;
+}
+
+.home__menu {
+  color: var(--color-white);
+}
+
 .map__img {
   position: fixed;
   width: 500px;
