@@ -572,24 +572,36 @@ p {
 
 #navbar__column {
   position: fixed;
-  width: 30vh;
+  width: 25vh;
   height: 100vh;
+  left: -140px;
   display: flex;
   color: var(--color-white);
   align-items: center;
   padding: 10px;
-  padding-right: 30px;
-  border-right: 1.5px solid var(--color-black);
   color: rgba(255, 255, 255, 1);
   z-index: 1;
+  transition: all 1s;
+}
+
+#navbar__column.show {
+  left: 0px;
+  transition: all 1s;
 }
 
 .navbar__column__menu {
+  width: 95%;
+  height: 100%;
   color: var(--color-black);
+  border-right: 1.5px solid var(--color-black);
 }
 
 .navbar__column__toggle {
   color: var(--color-black);
+  border: 1.5px solid var(--color-black);
+  border-left: none;
+  border-radius: 1.5px;
+  cursor: pointer;
 }
 
 /* <--- activity */
