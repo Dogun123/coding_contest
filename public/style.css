@@ -395,7 +395,7 @@ p {
   border-radius: 5px;
   padding: 12px 20px;
   margin-bottom: 5px;
-  background-color: #7c7979;
+  background-color: var(--homebackground-color-black);
 }
 
 .home__sub__theme__container {
