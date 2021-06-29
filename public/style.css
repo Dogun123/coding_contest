@@ -109,10 +109,15 @@ p {
 
 .dropdown_menu {
   position: absolute;
-  top: 60px;
-  right: -5px;
+  top: 46px;
+  right: -15px;
   display: none;
   z-index: 1;
+  background-color: var(--color-pink);
+  width: 100px;
+  border: 2px solid var(--color-dark-pink);
+  border-top: 0px;
+  border-radius: 0.5px;
 }
 
 .dropdown_menu.open {
@@ -120,7 +125,9 @@ p {
 }
 
 .detail_menu {
+  padding-top: 6px;
   padding-bottom: 10px;
+  border-top: 1px solid var(--color-dark-pink);
 }
 
 .detail_menu a:hover {
@@ -132,12 +139,11 @@ p {
 #navbar {
   position: fixed;
   width: 100%;
-  height: 8%;
+  height: 70px;
   display: flex;
   color: var(--color-white);
   background-color: rgba(0, 0, 0, 0.3);
   align-items: center;
-  padding: 10px;
   padding-right: 30px;
   border-bottom: 1.5px solid var(--color-white);
   color: rgba(255, 255, 255, 1);
@@ -164,13 +170,14 @@ p {
   position: relative;
   display: block;
   left: 50%;
-  margin-left: -10px;
-  margin-top: 23px;
-  width: 50px;
+  margin-left: -12px;
+  margin-top: 10px;
+  width: 0px;
   height: 2.5px;
   transform: translateX(-30%);
-  background-color: var(--color-blue);
+  background-color: var(--color-dark-pink);
   opacity: 0;
+  transition: all var(--animation-duration) ease-in;
 }
 
 .line.open {
@@ -180,6 +187,7 @@ p {
 /* Navbar */
 .nav__links--item:hover .line {
   opacity: 1;
+  width: 63px;
 }
 
 .nav__links {
@@ -189,21 +197,33 @@ p {
 
 .nav__links--item {
   position: relative;
+  top: 20px;
   margin: 4px;
   margin-left: 20px;
   padding: 5px 8px;
-  height: 24px;
+  height: 100%;
   text-align: center;
   line-height: 100%;
   cursor: pointer;
+}
+
+.nav__links--item:hover .dropdown_menu {
+  display: block;
 }
 
 .nav__links--item.cover:hover {
   color: #1a73e8;
 }
 
+.nav__links--right,
+.nav__links--left {
+  height: 70px;
+  margin: 0;
+}
+
 .nav__entrance__button {
   margin: 4px;
+  margin-top: 22px;
   width: 80px;
   height: 30px;
   text-align: center;
@@ -353,12 +373,11 @@ p {
 /* 메뉴바 */
 #navbar__home {
   width: 100%;
-  height: 60.55px;
+  height: 70px;
   display: flex;
   color: var(--color-white);
   background-color: rgba(0, 0, 0, 0.3);
   align-items: center;
-  padding: 10px;
   padding-right: 30px;
   border-bottom: 1.5px solid var(--color-white);
   color: rgba(255, 255, 255, 1);
@@ -367,12 +386,11 @@ p {
 
 #navbar__main {
   width: 100%;
-  height: 60.55px;
+  height: 70px;
   display: flex;
   color: var(--color-white);
   background-color: var(--color-pink);
   align-items: center;
-  padding: 10px;
   padding-right: 30px;
   border-bottom: 1.5px solid var(--color-white);
   color: rgba(255, 255, 255, 1);
