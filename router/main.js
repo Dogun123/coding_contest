@@ -9,4 +9,8 @@ module.exports = function(app)
     app.get('/activity',function(req,res){
         res.render('activity.html');
     });
+    app.get('/puzzle',function(req,res){
+        res.render('puzzle.html')
+    })
+
 }
