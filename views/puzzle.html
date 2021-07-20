@@ -132,14 +132,54 @@
         });
     </script>
 </head>
-<body>
-    <div id="puzzle__container">
-        <div id="pieceContainer"></div>
-        <div id="puzzleContainer"></div>
-        <ul class="puzzle_buttons_ul">
-            <li><button class="puzzle_buttons" id="btnStart">Start</button></li>
-            <li><button class="puzzle_buttons" id="btnReset">Reset</button></li>
-        </ul>
-    </div>
+<body style = "background-image:url(imgs/palace.jpg)">
+    <section id='navbar__main'>
+        <div class='header__logo'>
+            <a href="../">mapmap</a>
+        </div>
+        <div class="navbar__menu">
+            <ul class="nav__links nav__links--left">
+            </ul>
+            <ul class="nav__links nav__links--right">
+                <li class="nav__links--item"><span class="nav__text">행정구역</span>
+                    <div class="line"></div>
+                    <ul class="dropdown_menu">   
+                        <li class="detail_menu top"><a href="#">SUB_MENU</a></li>
+                        <li class="detail_menu"><a href="#">SUB_MENU</a></li>
+                        <li class="detail_menu"><a href="#">SUB_MENU</a></li>
+                    </ul>    
+                </li>
+                <li class="nav__links--item"><span class="nav__text">자연환경</span>
+                    <div class="line"></div>
+                    <ul class="dropdown_menu">
+                        <li class="detail_menu top"><a href="#">SUB_MENU</a></li>
+                        <li class="detail_menu"><a href="#">SUB_MENU</a></li>
+                        <li class="detail_menu"><a href="#">SUB_MENU</a></li>
+                    </ul>   
+                </li>
+                <li class="nav__links--item"><span class="nav__text">인구분포</span>
+                    <div class="line"></div>
+                    <ul class="dropdown_menu">
+                        <li class="detail_menu top"><a href="#">SUB_MENU</a></li>
+                        <li class="detail_menu"><a href="#">SUB_MENU</a></li>
+                        <li class="detail_menu"><a href="#">SUB_MENU</a></li>
+                    </ul>   
+                </li>
+                <li class="nav__links--item"><span class="nav__text"><a href="/puzzle">미니게임</a></span> 
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="puzzle" >
+            <div id="puzzle__container">
+                <h1 class="puzzle__title">지도 퍼즐게임</h1>
+                <div id="pieceContainer"></div>
+                <div id="puzzleContainer"></div>
+                <ul class="puzzle_buttons_ul">
+                    <li><button class="puzzle_buttons" id="btnStart">Start</button></li>
+                    <li><button class="puzzle_buttons" id="btnReset">Reset</button></li>
+                </ul>
+            </div>
+    </section>
 </body>
 </html>

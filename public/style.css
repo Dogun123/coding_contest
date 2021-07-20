@@ -675,13 +675,17 @@ p {
 /* <--- activity */
 
 /* puzzle ---> */
+#puzzle {
+  margin-top: 100px;
+}
 
 #puzzle__container {
-  width: 850px;
+  width: 920px;
   border: 2px solid black;
   border-radius: 20px;
   margin: 10px auto;
   padding: 10px;
+  background-color: white;
 }
 
 #pieceContainer {
@@ -693,6 +697,7 @@ p {
   font-size: var(--font-small);
   line-height: 400px;
   position: relative;
+  margin-left: 25px;
 }
 
 #puzzleContainer {
@@ -700,6 +705,8 @@ p {
   height: 402px;
   border: 1px solid black;
   float: right;
+  margin-right: 25px;
+
 }
 
 #puzzle__container ul {
@@ -726,6 +733,12 @@ p {
   float: left;
   background-image: url(imgs/korea_puzzle.png);
   background-repeat: no-repeat;
+}
+
+.puzzle__title {
+  color: black;
+  text-align: center;
+  margin: 40px 0px;
 }
 
 /* <--- puzzle */
