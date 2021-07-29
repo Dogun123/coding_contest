@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="map contents for Korean elementary social subject">
+    <meta name="author" content="Dogun">
+    <link rel="icon" type = "image/png" href = "imgs\map.png">
+    <title>초등사회지도학습</title>
+    <script src="https://kit.fontawesome.com/02390708a3.js" crossorigin="anonymous"></script>
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="popuchart.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>  
+</head>
+<body>
+    <section id="chart" class="section">
+        <div class="popu__section__container">
+            <div class="popu__summary__top">
+                <div class="average__age">
+                    <div class="average__age__text">평균연령</div>
+                    <div class="average__age__value">40.3</div>
+                </div>
+                <div class="population__title">
+                    <div class="population__title__text">총인구</div>
+                    <div class="population__title__value">5423123</div>
+                </div>
+                <div class="aging__rate">
+                    <div class="aging__rate__text">고령화</div>
+                    <div class="aging__rate__value">12.2%</div>
+                </div>
+            </div>
+
+            <div class="population__chart__container">
+                <div class="population__chart__left">
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value"></div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                    <div class="population__bar__left">
+                        <div class="population__bar__left__value">
+                        </div>
+                    </div>
+                </div>
+                <div class="population__chart__mid">
+                    <div class="population__bar__age_1">90~</div>
+                    <div class="population__bar__age_1">80~89</div>
+                    <div class="population__bar__age_1">70~79</div>
+                    <div class="population__bar__age_1">60~69</div>
+                    <div class="population__bar__age_1">50~59</div>
+                    <div class="population__bar__age_1">40~49</div>
+                    <div class="population__bar__age_1">30~39</div>
+                    <div class="population__bar__age_1">20~29</div>
+                    <div class="population__bar__age_1">10~19</div>
+                    <div class="population__bar__age_1">0~9</div>
+                </div>
+                <div class="population__chart__right">
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num">3456</div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                    <div class="population__bar__right">
+                        <div class="population__bar__right__value"></div>
+                        <div class="population__bar__right__num"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="popu__summary__end">
+                <div class="male">남자</div>
+                <div class="population__year">1950</div>
+                <div class="female">여자</div>
+            </div>
+            
+        </div>
+    </section>
+
+    <div id="number"></div>
+
+</body>
+</html>

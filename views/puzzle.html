@@ -129,6 +129,21 @@
                     }
                 });
             }
+            
+            $(".area__select").change(function() {
+                var imgUrl = "";
+                $("select option:selected").each(function(){
+                    imgUrl += $(this).val();
+                })
+                console.log(imgUrl)
+                $(":root").css("--puzzle-url","url"+imgUrl)
+                var newPieces = createPieces(true);
+                $("#puzzleContainer").html(newPieces);
+                $("#btnReset").hide();
+                $("#btnStart").show();
+                $("#pieceContainer").empty();
+            });
+            
         });
     </script>
 </head>
@@ -171,25 +186,25 @@
         </div>
     </section>
     <section id="puzzle" >
-            <div id="puzzle__title__container">
-                <h1 class="puzzle__title">지도 퍼즐게임</h1>
-            </div>
-            <div id="puzzle__container">
-                <ul class="puzzle__items">
-                    <li class="puzzle__item">sdf</li>
-                    <li class="puzzle__item">sdf</li>
-                    <li class="puzzle__item">sdf</li>
-                    <li class="puzzle__item">sdf</li>
-                </ul>
-                <div>
+        <div id="puzzle__title__container">
+            <h1 class="puzzle__title">지도 퍼즐게임</h1>
+        </div>
+        <div id="puzzle__container">
+            <div class="puzzle__containers">
                 <div id="pieceContainer"></div>
-                <div id="puzzleContainer"></div>
-                <ul class="puzzle_buttons_ul">
-                    <li><button class="puzzle_buttons" id="btnStart">Start</button></li>
-                    <li><button class="puzzle_buttons" id="btnReset">Reset</button></li>
+                <div id="puzzleContainer"></div>  
+            </div>    
+            <div class="puzzle__button__container">
+                <ul class="puzzle__buttons__ul">
+                    <li><button class="puzzle_buttons" id="btnStart">시작하기</button></li>
+                    <li><button class="puzzle_buttons" id="btnReset">다시하기</button></li>
                 </ul>
-                </div>               
-            </div>
+                <select name="area" class="area__select">
+                    <option value="(imgs/korea_puzzle.png)" selected>대한민국</option>
+                    <option value="(imgs/choongbuk_puzzle.png)">충청북도</option>
+                </select>
+            </div>               
+        </div>
     </section>
 </body>
 </html>

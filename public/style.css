@@ -33,6 +33,9 @@
   --size-border-radius: 4px;
   /* Animation*/
   --animation-duration: 300ms;
+
+  /* puzzle */
+  --puzzle-url: url(imgs/korea_puzzle.png)
 }
 
 /* Universal tags */
@@ -676,7 +679,7 @@ p {
 
 /* puzzle ---> */
 #puzzle {
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 #puzzle__container {
@@ -698,6 +701,7 @@ p {
   background-color: white;
 }
 
+
 #pieceContainer {
   width: 400px;
   height: 400px;
@@ -718,17 +722,36 @@ p {
   margin-right: 25px;
 }
 
+.puzzle__button__container{
+  width: 420px;
+  display: flex;
+}
+
+
+.area__select {
+  height: 30px;
+  margin: 21px 200px;
+}
+
+
 #puzzle__container ul {
   text-align: center;
 }
 
+
 .puzzle_buttons {
   width: 100px;
-  border: 1px solid black;
+  border: 1px solid var(--color-blue);
   font-size: 20px;
   border-radius: 5px;
   padding: 5px;
-  margin-top: 10px;
+  margin:0px 165px;
+  color: white;
+  background-color: rgb(112 , 170, 222);
+}
+
+.puzzle_buttons:hover {
+  background-color:  rgb(86, 153, 211);
 }
 
 #btnReset {
@@ -740,7 +763,7 @@ p {
   height: 100px;
   border: 1px solid black;
   float: left;
-  background-image: url(imgs/korea_puzzle.png);
+  background-image: var(--puzzle-url);
   background-repeat: no-repeat;
 }
 
@@ -759,7 +782,149 @@ p {
   border: 1.5px solid;
 }
 
+
 /* <--- puzzle */
+
+/* population_chart ---> */
+
+.popu__section__container {
+  min-width: 800px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.popu__summary__top {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+}
+
+.popu__summary__end {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.population__title__text{
+  font-size: 30px;
+  font-weight: var(--weight-bold);
+}
+
+.average__age__text,
+.aging__rate__text {
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+  padding-top: 10px;
+}
+
+.population__year {
+  font-size: 50px;
+  font-weight: var(--weight-bold);
+}
+
+.male,
+.female {
+  font-weight: var(--weight-bold);
+  font-size: 40px;
+}
+
+.male {
+  color: red;
+}
+
+.female {
+  color: blue;
+}
+
+.population__title__value {
+  color:red;
+  font-size: 30px;
+  font-weight: var(--weight-semi-bold);
+}
+
+.average__age__value,
+.aging__rate__value {
+  font-size: 20px;
+  font-weight: var(--weight-semi-bold);
+}
+
+.population__chart__container{
+  width: 100%;
+  display: flex;
+  background-color: var(--color-dark-grey);
+  padding: 20px 40px;
+}
+
+
+.population__chart__left{
+  margin-top: 0.5px;
+  flex-basis: 47.5%;
+}
+
+.population__chart__right{
+
+  flex-basis: 47.5%;
+}
+
+.population__chart__mid{
+  flex-basis: 5%;
+}
+
+.population__bar__left,
+.population__bar__right{
+  display: flex;
+  width: 100%;
+  margin: 3px 0px;
+}
+
+.population__bar__left{
+  justify-content: flex-end;
+}
+
+
+.population__bar__left__value,
+.population__bar__right__value
+{
+  width: 23%;
+  height: 30px;
+  margin: 3px 0px;
+}
+
+.population__bar__age_1{
+  text-align: center;
+  height: 36px;
+  line-height: 36px;
+  margin:3px 0px;
+  color: white;
+}
+
+.population__bar__left__value{
+  background-color: red;
+}
+
+.population__bar__right__value{
+  background-color: blue;
+}
+
+.population__bar__age{
+  font-size: 20px;
+  position:relative;
+  left:36px;
+  color: white;
+}
+
+#number{
+  color:black;
+}
+
+
+
+
+
+
+
+
+/* <--- population_chart */
 
 /* For below 1180px screen width */
 @media (max-width: 1180px) {

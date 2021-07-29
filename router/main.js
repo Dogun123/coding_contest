@@ -12,5 +12,8 @@ module.exports = function(app)
     app.get('/puzzle',function(req,res){
         res.render('puzzle.html')
     })
+    app.get('/population',function(req,res){
+        res.render('population.html')
+    })
 
 }
