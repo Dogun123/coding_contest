@@ -787,6 +787,10 @@ p {
 
 /* population_chart ---> */
 
+#chart{
+  padding-top:30px;
+}
+
 .popu__section__container {
   min-width: 800px;
   max-width: 800px;
@@ -818,14 +822,14 @@ p {
 }
 
 .population__year {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: var(--weight-bold);
 }
 
 .male,
 .female {
   font-weight: var(--weight-bold);
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .male {
@@ -882,12 +886,12 @@ p {
 }
 
 
-.population__bar__left__value,
-.population__bar__right__value
+.population__bar__value
 {
   width: 23%;
   height: 30px;
   margin: 3px 0px;
+  background-color: red;
 }
 
 .population__bar__age_1{
@@ -898,13 +902,11 @@ p {
   color: white;
 }
 
-.population__bar__left__value{
-  background-color: red;
-}
-
-.population__bar__right__value{
+.bar_right{
   background-color: blue;
 }
+
+
 
 .population__bar__age{
   font-size: 20px;
@@ -916,6 +918,30 @@ p {
 #number{
   color:black;
 }
+
+/* .popu__summary__end__mid {
+  position:relative;
+} */
+
+.population__chart__start{
+  bottom:40px;
+  left:120px;
+  position:relative;
+  width: 90px;
+  border: 1px solid var(--color-blue);
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 5px;
+  margin:0px 165px;
+  color: white;
+  background-color: rgb(112 , 170, 222);
+}
+
+
+.population__chart__start:hover {
+  background-color:  rgb(86, 153, 211);
+}
+
 
 
 

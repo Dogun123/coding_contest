@@ -1,55 +1,127 @@
-const data = [{"year":1950,"sex":"female","0s":1584.0079999999998,"10s":1412.405,"20s":952.653,"30s":600.221,"40s":458.44399999999996,"50s":355.474,"60s":220.424,"70s":79.684,"80s":13.452,"90s":0.881},{"year":1955,"sex":"female","0s":1246.212,"10s":1466.173,"20s":991.109,"30s":639.443,"40s":444.56600000000003,"50s":359.384,"60s":232.613,"70s":97.81099999999999,"80s":15.143999999999998,"90s":0.718},{"year":1960,"sex":"female","0s":1470.9080000000001,"10s":1438.1770000000001,"20s":1208.5970000000002,"30s":761.4069999999999,"40s":490.063,"50s":384.168,"60s":255.35299999999998,"70s":117.755,"80s":17.94,"90s":0.6449999999999999},{"year":1965,"sex":"female","0s":1806.394,"10s":1183.401,"20s":1366.008,"30s":908.3240000000001,"40s":588.552,"50s":399.302,"60s":276.526,"70s":136.064,"80s":26.323,"90s":0.884},{"year":1970,"sex":"female","0s":2045.1,"10s":1408.091,"20s":1362.318,"30s":1128.495,"40s":711.1469999999999,"50s":447.418,"60s":304.454,"70s":155.84,"80s":33.114,"90s":1.126},{"year":1975,"sex":"female","0s":2337.8370000000004,"10s":1756.9099999999999,"20s":1140.24,"30s":1302.62,"40s":863.4749999999999,"50s":547.267,"60s":328.10699999999997,"70s":179.938,"80s":43.342999999999996,"90s":1.9889999999999999},{"year":1980,"sex":"female","0s":1977.326,"10s":2005.808,"20s":1375.039,"30s":1317.839,"40s":1086.662,"50s":670.501,"60s":379.874,"70s":208.25099999999998,"80s":53.876000000000005,"90s":2.738},{"year":1985,"sex":"female","0s":1748.996,"10s":2305.182,"20s":1724.835,"30s":1111.929,"40s":1263.804,"50s":821.52,"60s":474.012,"70s":232.299,"80s":67.033,"90s":4.003},{"year":1990,"sex":"female","0s":1876.847,"10s":1955.556,"20s":1977.227,"30s":1347.879,"40s":1284.404,"50s":1040.103,"60s":588.254,"70s":277.276,"80s":81.025,"90s":5.237000000000001},{"year":1995,"sex":"female","0s":1958.403,"10s":1735.536,"20s":2283.706,"30s":1701.421,"40s":1091.2060000000001,"50s":1221.481,"60s":740.225,"70s":364.35699999999997,"80s":100.432,"90s":7.6240000000000006},{"year":2000,"sex":"female","0s":1967.73,"10s":1858.899,"20s":1930.5459999999998,"30s":1945.2400000000002,"40s":1321.275,"50s":1235.433,"60s":925.789,"70s":441.821,"80s":115.84800000000001,"90s":8.769},{"year":2005,"sex":"female","0s":1895.161,"10s":1930.376,"20s":1708.3960000000002,"30s":2232.559,"40s":1657.971,"50s":1042.255,"60s":1071.352,"70s":542.1759999999999,"80s":143.929,"90s":9.648000000000001},{"year":2010,"sex":"female","0s":1758.24,"10s":1947.4879999999998,"20s":1829.951,"30s":1886.613,"40s":1899.546,"50s":1269.9560000000001,"60s":1087.147,"70s":685.722,"80s":177.839,"90s":11.719999999999999},{"year":2015,"sex":"female","0s":1653.481,"10s":1876.555,"20s":1903.2649999999999,"30s":1670.7530000000002,"40s":2183.795,"50s":1595.394,"60s":923.431,"70s":807.9110000000001,"80s":237.048,"90s":17.949},{"year":2020,"sex":"female","0s":1674.9299999999998,"10s":1743.0529999999999,"20s":1922.2510000000002,"30s":1795.513,"40s":1848.623,"50s":1838.0839999999998,"60s":1155.532,"70s":840.611,"80s":325.074,"90s":26.765},{"year":1950,"sex":"male","0s":1523.29,"10s":1210.874,"20s":713.9590000000001,"30s":541.389,"40s":374.95000000000005,"50s":280.219,"60s":165.586,"70s":54.132999999999996,"80s":7.165,"90s":0.259},{"year":1955,"sex":"male","0s":1192.691,"10s":1382.007,"20s":715.799,"30s":460.084,"40s":374.41200000000003,"50s":258.007,"60s":149.33,"70s":53.497,"80s":7.73,"90s":0.267},{"year":1960,"sex":"male","0s":1464.3719999999998,"10s":1378.754,"20s":1042.216,"30s":502.11699999999996,"40s":405.826,"50s":275.142,"60s":153.947,"70s":50.204,"80s":6.402,"90s":0.19599999999999998},{"year":1965,"sex":"male","0s":1833.633,"10s":1131.493,"20s":1295.875,"30s":648.554,"40s":409.033,"50s":318.277,"60s":161.56300000000002,"70s":50.577,"80s":6.525,"90s":0.21600000000000003},{"year":1970,"sex":"male","0s":2100.125,"10s":1395.351,"20s":1308.141,"30s":961.088,"40s":454.63800000000003,"50s":351.182,"60s":180.15300000000002,"70s":55.855,"80s":6.569999999999999,"90s":0.185},{"year":1975,"sex":"male","0s":2420.357,"10s":1780.251,"20s":1088.881,"30s":1221.529,"40s":602.367,"50s":364.251,"60s":222.127,"70s":65.218,"80s":7.803,"90s":0.22699999999999998},{"year":1980,"sex":"male","0s":2057.3720000000003,"10s":2056.757,"20s":1360.512,"30s":1252.597,"40s":909.0740000000001,"50s":414.253,"60s":254.02800000000002,"70s":79.644,"80s":9.735,"90s":0.258},{"year":1985,"sex":"male","0s":1826.617,"10s":2384.633,"20s":1743.2649999999999,"30s":1052.424,"40s":1167.806,"50s":557.6189999999999,"60s":272.788,"70s":105.58600000000001,"80s":12.529,"90s":0.34600000000000003},{"year":1990,"sex":"male","0s":1963.4879999999998,"10s":2033.618,"20s":2022.7740000000001,"30s":1323.988,"40s":1205.4569999999999,"50s":849.6590000000001,"60s":319.061,"70s":124.36500000000001,"80s":16.376,"90s":0.46299999999999997},{"year":1995,"sex":"male","0s":2047.326,"10s":1810.4499999999998,"20s":2354.4139999999998,"30s":1706.759,"40s":1020.8589999999999,"50s":1102.018,"60s":447.722,"70s":143.43900000000002,"80s":24.261,"90s":0.661},{"year":2000,"sex":"male","0s":2060.114,"10s":1934.382,"20s":1991.676,"30s":1962.703,"40s":1274.2379999999998,"50s":1118.337,"60s":653.874,"70s":156.632,"80s":24.98,"90s":0.792},{"year":2005,"sex":"male","0s":1984.035,"10s":2008.915,"20s":1769.781,"30s":2269.014,"40s":1629.654,"50s":938.808,"60s":828.063,"70s":214.09900000000002,"80s":26.906,"90s":1.069},{"year":2010,"sex":"male","0s":1835.2640000000001,"10s":2035.621,"20s":1896.7040000000002,"30s":1927.3600000000001,"40s":1889.684,"50s":1193.406,"60s":853.381,"70s":329.845,"80s":32.181,"90s":1.1720000000000002},{"year":2015,"sex":"male","0s":1729.418,"10s":1962.2150000000001,"20s":1973.86,"30s":1715.606,"40s":2190.6899999999996,"50s":1527.145,"60s":728.4359999999999,"70s":433.115,"80s":52.062,"90s":1.703},{"year":2020,"sex":"male","0s":1755.441,"10s":1818.176,"20s":2003.4650000000001,"30s":1846.3809999999999,"40s":1865.6930000000002,"50s":1784.7020000000002,"60s":979.1510000000001,"70s":463.34799999999996,"80s":89.40899999999999,"90s":2.6130000000000004}]
+const female_data = [{"year":1950,"sex":"female","0s":3400.9269999999997,"10s":2439.044,"20s":1793.644,"30s":1557.717,"40s":1151.434,"50s":724.566,"60s":552.982,"70s":236.086,"80s":69.581,"90s":14.638},{"year":1955,"sex":"female","0s":3619.7619999999997,"10s":2613.5640000000003,"20s":2085.741,"30s":1751.373,"40s":1294.461,"50s":795.146,"60s":584.236,"70s":314.44,"80s":81.64099999999999,"90s":13.063},{"year":1960,"sex":"female","0s":4210.927,"10s":3026.559,"20s":2205.8810000000003,"30s":2048.514,"40s":1523.058,"50s":931.033,"60s":596.27,"70s":379.818,"80s":113.286,"90s":8.922},{"year":1965,"sex":"female","0s":4243.037,"10s":3808.154,"20s":2424.678,"30s":2163.923,"40s":1753.747,"50s":1029.807,"60s":676.553,"70s":420.86,"80s":161.21,"90s":13.79},{"year":1970,"sex":"female","0s":4157.187,"10s":4369.921,"20s":2871.998,"30s":2382.42,"40s":2030.4209999999998,"50s":1212.473,"60s":813.942,"70s":449.33000000000004,"80s":202.504,"90s":19.715},{"year":1975,"sex":"female","0s":4156.992,"10s":4367.989,"20s":3615.786,"30s":2785.62,"40s":2133.021,"50s":1412.848,"60s":919.885,"70s":535.494,"80s":237.767,"90s":40.115},{"year":1980,"sex":"female","0s":3910.867,"10s":4307.766,"20s":4167.432,"30s":3519.529,"40s":2318.5460000000003,"50s":1648.789,"60s":1102.125,"70s":658.636,"80s":263.38800000000003,"90s":55.574000000000005},{"year":1985,"sex":"female","0s":3844.693,"10s":4067.8959999999997,"20s":4251.1900000000005,"30s":4136.187,"40s":2734.181,"50s":1914.1999999999998,"60s":1297.229,"70s":753.0550000000001,"80s":323.873,"90s":72.827},{"year":1990,"sex":"female","0s":3448.4359999999997,"10s":3777.096,"20s":4306.642,"30s":4262.9490000000005,"40s":3516.031,"50s":2057.111,"60s":1536.473,"70s":927.1569999999999,"80s":404.442,"90s":81.886},{"year":1995,"sex":"female","0s":3627.172,"10s":3308.1490000000003,"20s":4084.1639999999998,"30s":4306.217000000001,"40s":4120.521,"50s":2260.7380000000003,"60s":1807.175,"70s":1116.504,"80s":485.89599999999996,"90s":112.709},{"year":2000,"sex":"female","0s":3511.076,"10s":3086.7439999999997,"20s":3789.712,"30s":4106.358,"40s":4258.65,"50s":2676.185,"60s":1967.273,"70s":1358.48,"80s":629.657,"90s":147.561},{"year":2005,"sex":"female","0s":3202.788,"10s":3141.5,"20s":3294.524,"30s":3780.05,"40s":4340.464,"50s":3457.727,"60s":2187.006,"70s":1636.732,"80s":791.45,"90s":183.575},{"year":2010,"sex":"female","0s":3116.4700000000003,"10s":2711.077,"20s":3074.091,"30s":3234.365,"40s":4056.768,"50s":4070.866,"60s":2608.88,"70s":1825.042,"80s":1040.012,"90s":274.63699999999994},{"year":2015,"sex":"female","0s":3112.982,"10s":2287.4139999999998,"20s":3158.298,"30s":3176.818,"40s":3739.1620000000003,"50s":4255.34,"60s":3360.248,"70s":2075.96,"80s":1327.059,"90s":390.561},{"year":2020,"sex":"female","0s":2942.7110000000002,"10s":2199.989,"20s":2720.322,"30s":3162.306,"40s":3371.739,"50s":4254.519,"60s":3997.2709999999997,"70s":2459.549,"80s":1577.598,"90s":561.319}]
 
-male_num = document.querySelectorAll('.population__bar__right__num');
-male_chart = document.querySelectorAll('.population__bar__right__value');
-female_num = document.querySelectorAll('.population__bar__left__num');
+const male_data = [{"year":1950,"sex":"male","0s":3542.402,"10s":2680.726,"20s":1482.974,"30s":1315.1190000000001,"40s":1094.0900000000001,"50s":710.4290000000001,"60s":461.876,"70s":177.25400000000002,"80s":45.891999999999996,"90s":7.549},{"year":1955,"sex":"male","0s":3692.5209999999997,"10s":2861.983,"20s":2066.919,"30s":1315.018,"40s":1116.549,"50s":835.027,"60s":514.244,"70s":236.91899999999998,"80s":52.428,"90s":1.9949999999999999},{"year":1960,"sex":"male","0s":4337.582,"10s":3296.9669999999996,"20s":2342.032,"30s":1597.292,"40s":1281.172,"50s":960.049,"60s":544.951,"70s":279.855,"80s":69.284,"90s":1.886},{"year":1965,"sex":"male","0s":4367.432,"10s":4051.54,"20s":2654.233,"30s":1988.237,"40s":1373.042,"50s":1021.212,"60s":652.52,"70s":312.442,"80s":90.751,"90s":3.118},{"year":1970,"sex":"male","0s":4291.103,"10s":4603.290999999999,"20s":3118.393,"30s":2241.112,"40s":1546.058,"50s":1152.704,"60s":753.074,"70s":329.087,"80s":101.694,"90s":4.867999999999999},{"year":1975,"sex":"male","0s":4306.812,"10s":4612.469999999999,"20s":3828.239,"30s":2478.964,"40s":1926.8829999999998,"50s":1237.1239999999998,"60s":803.7280000000001,"70s":396.557,"80s":112.681,"90s":11.148},{"year":1980,"sex":"male","0s":4044.362,"10s":4581.429,"20s":4365.576999999999,"30s":2934.7200000000003,"40s":2191.7129999999997,"50s":1415.4279999999999,"60s":921.833,"70s":458.149,"80s":117.351,"90s":13.499000000000002},{"year":1985,"sex":"male","0s":3974.139,"10s":4343.154,"20s":4472.72,"30s":3683.928,"40s":2462.3540000000003,"50s":1800.89,"60s":1007.809,"70s":509.76599999999996,"80s":151.893,"90s":17.214000000000002},{"year":1990,"sex":"male","0s":3649.821,"10s":4022.067,"20s":4553.723,"30s":4304.253,"40s":2880.5299999999997,"50s":2066.357,"60s":1194.961,"70s":624.976,"80s":187.418,"90s":20.042},{"year":1995,"sex":"male","0s":3852.249,"10s":3632.874,"20s":4330.0779999999995,"30s":4427.33,"40s":3600.437,"50s":2319.38,"60s":1569.9560000000001,"70s":722.914,"80s":238.575,"90s":31.009000000000004},{"year":2000,"sex":"male","0s":3660.531,"10s":3508.712,"20s":4016.1620000000003,"30s":4542.3060000000005,"40s":4219.16,"50s":2731.09,"60s":1824.887,"70s":905.025,"80s":320.44,"90s":43.598},{"year":2005,"sex":"male","0s":3321.5699999999997,"10s":3513.259,"20s":3607.654,"30s":4340.610000000001,"40s":4384.805,"50s":3458.517,"60s":2104.81,"70s":1244.24,"80s":398.29499999999996,"90s":62.178},{"year":2010,"sex":"male","0s":3192.468,"10s":2977.626,"20s":3487.62,"30s":3913.6400000000003,"40s":4488.367,"50s":4086.598,"60s":2529.923,"70s":1509.734,"80s":553.309,"90s":95.33999999999999},{"year":2015,"sex":"male","0s":3173.2780000000002,"10s":2460.6189999999997,"20s":3546.187,"30s":3712.004,"40s":4232.749,"50s":4336.448,"60s":3277.7920000000004,"70s":1798.069,"80s":811.2620000000001,"90s":132.616},{"year":2020,"sex":"male","0s":2994.3,"10s":2333.5950000000003,"20s":2972.398,"30s":3604.346,"40s":3990.4260000000004,"50s":4354.907,"60s":3938.478,"70s":2217.6820000000002,"80s":1068.786,"90s":210.93599999999998}]
+
+total_data = [19211,21515,25330,28896,32196,35379,38046,40804,42918, 45293,47379,48701,49546,50823,51269
+]
+
+averageage_data =[19.0,	18.9,	18.6,	18.4,	19.0,	19.9,	22.1,	24.3,	27.0,	29.3,	31.9,	34.8,	38.0,	40.8,	43.7
+]
+
+aging_data = [3.0,3.4,3.5,3.6,3.6,3.9,4.3,4.7,5.5,6.4,7.7,9.7,12.0,14.8,18.8]
+
+num = document.querySelectorAll('.population__bar__num');
+chart = document.querySelectorAll('.population__bar__value');
 year = document.querySelector('.population__year');
-console.log(year);
-console.log(data[0]["year"]);
-console.log(male_chart[0]);
+total = document.querySelector('.population__title__value');
+averageAge = document.querySelector('.average__age__value');
+aging = document.querySelector('.aging__rate__value')
+
+
 // male_chart[0].style.width =  79+ '%';
 const nSecond = 5,
       resolutionMS = 33;
 
 
-  delayPop(0);
-
+  
+function chart_start(){
+  delayPop(0,"90s","female",0);
+  delayPop(0,"80s","female",1);
+  delayPop(0,"70s","female",2);
+  delayPop(0,"60s","female",3);
+  delayPop(0,"50s","female",4);
+  delayPop(0,"40s","female",5);
+  delayPop(0,"30s","female",6);
+  delayPop(0,"20s","female",7);
+  delayPop(0,"10s","female",8);
+  delayPop(0,"0s","female",9);
+  delayPop(0,"90s","male",10);
+  delayPop(0,"80s","male",11);
+  delayPop(0,"70s","male",12);
+  delayPop(0,"60s","male",13);
+  delayPop(0,"50s","male",14);
+  delayPop(0,"40s","male",15);
+  delayPop(0,"30s","male",16);
+  delayPop(0,"20s","male",17);
+  delayPop(0,"10s","male",18);
+  delayPop(0,"0s","male",19);
   delayYear(0);
-
-// 5초마다 숫자 카운팅 이어서하기 
-function delayPop(d) {
-  countIni(d);
-  if(d==3){
-    return false;
-  }
-  console.log("complete")
-  sleep(5000).then(() => delayPop(d+1));
+  delayTotal(0);
+  delayAverage(0);
+  delayAging(0);
 }
+
+
+
+console.log(total_data[0])
+
 
 
 
 function delayYear(d) {
   countYear(d);
-  if(d==3){
+  if(d==14){
     return false;
   }
   sleep(5000).then(() => delayYear(d+1));
 }
 
+function delayTotal(d) {
+  countTotal(d);
+  if(d==13){
+    return false;
+  }
+  sleep(5000).then(() => delayTotal(d+1));
+}
+
+function delayAverage(d){
+  countAverage(d);
+  if(d==13){
+    return false;
+  }
+  sleep(5000).then(() => delayAverage(d+1));
+}
+
+function delayAging(d){
+  countAging(d);
+  if(d==13){
+    return false;
+  }
+  sleep(5000).then(() => delayAging(d+1));
+}
+
+// 5초마다 숫자 카운팅 이어서하기 
+function delayPop(order,age,sex,pos) {
+  countIni(order,age,sex,pos);
+  if(order==14){
+    return false;
+  }
+  console.log("complete")
+  sleep(5000).then(() => delayPop(order+1,age,sex,pos));
+}
+
+
+// order: 연도, age: 나이, sex:성별, pos:입력값위치 
+
 // 숫자 카운팅 함수
-function countIni(order) {
-  let startNum = Math.floor(data[order]["0s"])*1000,
-  endNum = Math.floor(data[order+1]["0s"])*1000,
+function countIni(order,age,sex,pos) {
+  if (sex == "male") {
+    data=male_data
+    data= male_data;
+  } else if (sex=="female") {
+    data = female_data;
+  };
+  let startNum = Math.floor(data[order][age])*1000,
+  endNum = Math.floor(data[order+1][age])*1000,
   deltaNum = (endNum - startNum) / (1000 / resolutionMS) / nSecond;
 
-  var handle = setInterval(() => {
-    var x = startNum.toLocaleString(undefined, {
+  let handle = setInterval(() => {
+    let x = startNum.toLocaleString(undefined, {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     });
-    male_num[0].innerHTML = x.toString();
-    male_chart[0].style.width = startNum/250000 + '%';
-    console.log(typeof(startNum))
+    num[pos].innerHTML = x.toString();
+    chart[pos].style.width = startNum/70000 + '%';
     // if already updated the endNum, stop
     if(startNum<=endNum){
       if (startNum >= endNum) clearInterval(handle);
@@ -69,8 +141,8 @@ function countIni(order) {
 
 
 function countYear(counting) {
-  let startNum = data[counting]["year"],
-  endNum = data[counting+1]["year"],
+  let startNum = male_data[counting]["year"],
+  endNum = male_data[counting+1]["year"],
   deltaNum = (endNum - startNum) / (1000 / resolutionMS) / nSecond;
   console.log(startNum);
   var handle = setInterval(() => {
@@ -88,9 +160,118 @@ function countYear(counting) {
   }, resolutionMS);
 };
 
+function countTotal(counting) {
+  let startNum = total_data[counting]*1000,
+  endNum = total_data[counting+1]*1000,
+  deltaNum = (endNum - startNum) / (1000 / resolutionMS) /nSecond;
+  console.log(startNum);
+  var handle = setInterval(() => {
+    var x = startNum.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+    total.innerHTML = x.toString();
+    
+    // if already updated the endNum, stop
+    if (startNum >= endNum) clearInterval(handle);
+    
+    startNum += deltaNum;
+    startNum = Math.min(startNum, endNum);
+  }, resolutionMS);
+};
+
+
+function countAverage(counting) {
+  let startNum = averageage_data[counting]*10,
+  endNum = averageage_data[counting+1]*10,
+  deltaNum = (endNum - startNum) / (1000 / resolutionMS) /nSecond;
+  console.log(startNum);
+  var handle = setInterval(() => {
+    var x = startNum.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+    natNum=x.substr(0,2);
+    decNum=x.substr(2,1);
+    averageAge.innerHTML = natNum+"."+decNum;
+    // averageAge.innerHTML = x.toString();
+    
+    // if already updated the endNum, stop
+    if (startNum >= endNum) clearInterval(handle);
+    
+    startNum += deltaNum;
+    startNum = Math.min(startNum, endNum);
+  }, resolutionMS);
+};
+
+function countAging(counting) {
+  let startNum = aging_data[counting]*10,
+  endNum = aging_data[counting+1]*10,
+  deltaNum = (endNum - startNum) / (1000 / resolutionMS) /nSecond;
+  console.log(startNum);
+  var handle = setInterval(() => {
+    var x = startNum.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+    if(Number(x)<100){
+      natNum=x.substr(0,1);
+      decNum=x.substr(1,1);
+    } else {
+      natNum=x.substr(0,2);
+      decNum=x.substr(2,1);
+    }
+    aging.innerHTML = natNum+"."+decNum+"%";
+    // averageAge.innerHTML = x.toString();
+    
+    // if already updated the endNum, stop
+    if (startNum >= endNum) clearInterval(handle);
+    
+    startNum += deltaNum;
+    startNum = Math.min(startNum, endNum);
+  }, resolutionMS);
+};
+// function countSum(counting) {
+//   let startNum = Math.floor(male_data[order][age])*1000+,
+//   endNum = data[counting+1]["year"],
+//   deltaNum = (endNum - startNum) / (1000 / resolutionMS) / nSecond;
+//   console.log(startNum);
+//   var handle = setInterval(() => {
+//     var x = startNum.toLocaleString(undefined, {
+//       minimumFractionDigits: 0,
+//       maximumFractionDigits: 0
+//     });
+//     year.innerHTML = x.toString().replace(",", "");
+    
+//     // if already updated the endNum, stop
+//     if (startNum >= endNum) clearInterval(handle);
+    
+//     startNum += deltaNum;
+//     startNum = Math.min(startNum, endNum);
+//   }, resolutionMS);
+// };
+
 
 
 // 비동기 지연함수
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
+
+// 엑셀 파일 읽기
+
+// function readExcel() {
+//   let input = event.target;
+//   let reader = new FileReader();
+//   reader.onload = function () {
+//       let data = reader.result;
+//       let workBook = XLSX.read(data, { type: 'binary' });
+//       workBook.SheetNames.forEach(function (sheetName) {
+//           console.log('SheetName: ' + sheetName);
+//           let rows = XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);
+//           console.log(JSON.stringify(rows));
+//       })
+//   };
+//   reader.readAsBinaryString(input.files[0]);
+// }
+
