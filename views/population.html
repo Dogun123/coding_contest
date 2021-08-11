@@ -9,15 +9,22 @@
     <link rel="icon" type = "image/png" href = "imgs\map.png">
     <title>초등사회지도학습</title>
     <script src="https://kit.fontawesome.com/02390708a3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
     </style>
     <link rel="stylesheet" href="style.css">
     <script src="popuchart.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <!-- chart.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <!-- google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    
 </head>
-<body>
-    <section id='navbar__main'>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style= "background-color: blanchedalmond;">
+    <!-- <section id='navbar__main'>
         <div class='header__logo'>
             <a href="../">mapmap</a>
         </div>
@@ -53,7 +60,7 @@
                 </li>
             </ul>
         </div>
-    </section>
+    </section> -->
     <section id="chart" class="section">
         <div class="popu__section__container">
             <div class="popu__summary__top">
@@ -64,10 +71,36 @@
                 <div class="population__title">
                     <div class="population__title__text">총인구</div>
                     <div class="population__title__value">5423123</div>
+
                 </div>
                 <div class="aging__rate">
                     <div class="aging__rate__text">고령화</div>
                     <div class="aging__rate__value">12.2%</div>
+                </div>
+
+                        <!-- 팝업창 -->
+                <div id="popup1" class="popup__chart popup__average__age">
+                    <div id="popup1header" class="popup__chart__navbar">
+                        <!-- 폰트어썸아이콘 -->
+                        <i class="fas fa-times popup__close"></i>
+                    </div>
+                    <div id="chart_div_av"></div>
+                </div>
+
+                <div id="popup2" class="popup__chart popup__total">
+                    <div id="popup2header" class="popup__chart__navbar">
+                        <!-- 폰트어썸아이콘 -->
+                        <i class="fas fa-times popup__close"></i>
+                    </div>
+                    <div id="chart_div_total"></div>
+                </div>
+
+                <div id="popup3" class="popup__chart popup__aging">
+                    <div id="popup3header" class="popup__chart__navbar">
+                        <!-- 폰트어썸아이콘 -->
+                        <i class="fas fa-times popup__close"></i>
+                    </div>
+                    <div id="chart_div_aging"></div>
                 </div>
             </div>
 
@@ -171,19 +204,47 @@
             </div>
             
             <div class="popu__summary__end">
-                <div class="male">남자</div>
+                <!-- 폰트어썸 아이콘 -->
+                
+                <div class="male"><i class="fas fa-male"></i></div>
                 <div class="popu__summary__end__mid">
                     <div class="population__year">1950</div>
-                    <button class="population__chart__start" onclick="chart_start()">시작하기</button>
+                    <div class="chart__button__container">
+                        <button class="population__chart__start">시작하기</button>
+                       
+                        <button class="population__chart__stop" onclick="stop()">중단하기</button>
+
+                        <button class="population__chart__resume" onclick="chart_start()">재개하기</button>
+                        
+                    </div>
+
+
+                    <!-- <button class="population__chart__start" onclick="chart_start()">시작하기</button>
+                    <button class="population__chart__stop" onclick="stop()">중단하기</button> -->
+                    <!-- <button class="population__chart__resume">재개하기</button> -->
+
                 </div>
-                
-                <div class="female">여자</div>
+                <!-- 폰트어썸 아이콘 -->
+                <div class="female"><i class="fas fa-female"></i></div>
             </div>
-            
+            <div class="population__volume">
+                <!-- 구글 아이콘 -->
+                <span class="material-icons volume__up">volume_up</span>
+                <span class="material-icons volume__off">volume_off</span>
+            </div>
+            <div class="population__year__arrow">
+                <!-- 구글 아이콘 -->
+                <span class="material-icons population__year__arrow__icon drop__up">arrow_drop_up</span>
+                <span class="material-icons population__year__arrow__icon drop__down">arrow_drop_down</span>
+            </div>
         </div>
+
+
+
+        
     </section>
 
-    <input type="file" onchange="readExcel()">
-
+    <!-- <input type="file" onchange="readExcel()"> -->
 </body>
 </html>
+

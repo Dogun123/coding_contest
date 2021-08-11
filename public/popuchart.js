@@ -10,95 +10,186 @@ averageage_data =[19.0,	18.9,	18.6,	18.4,	19.0,	19.9,	22.1,	24.3,	27.0,	29.3,	31
 
 aging_data = [3.0,3.4,3.5,3.6,3.6,3.9,4.3,4.7,5.5,6.4,7.7,9.7,12.0,14.8,18.8]
 
-num = document.querySelectorAll('.population__bar__num');
-chart = document.querySelectorAll('.population__bar__value');
-year = document.querySelector('.population__year');
-total = document.querySelector('.population__title__value');
-averageAge = document.querySelector('.average__age__value');
-aging = document.querySelector('.aging__rate__value')
+const num = document.querySelectorAll('.population__bar__num');
+const chart = document.querySelectorAll('.population__bar__value');
+const year = document.querySelector('.population__year');
+const total = document.querySelector('.population__title__value');
+const averageAge = document.querySelector('.average__age__value');
+const aging = document.querySelector('.aging__rate__value')
+const chartStart = document.querySelector('.population__chart__start');
+const chartStop = document.querySelector('.population__chart__stop');
+const volumeUp = document.querySelector('.volume__up');
+const volumeOff = document.querySelector('.volume__off');
+const chartResume = document.querySelector('.population__chart__resume');
 
 
-// male_chart[0].style.width =  79+ '%';
+let yearNumCount = 0
+
 const nSecond = 5,
       resolutionMS = 33;
 
 
-  
+
+chartStop.style.display = "none";
+chartResume.style.opacity = "0";
+chartResume.style.pointerEvents = "none"
+
+let activate = true;
+var audio = new Audio('/music/BattleofKings.mp3');
+      
 function chart_start(){
-  delayPop(0,"90s","female",0);
-  delayPop(0,"80s","female",1);
-  delayPop(0,"70s","female",2);
-  delayPop(0,"60s","female",3);
-  delayPop(0,"50s","female",4);
-  delayPop(0,"40s","female",5);
-  delayPop(0,"30s","female",6);
-  delayPop(0,"20s","female",7);
-  delayPop(0,"10s","female",8);
-  delayPop(0,"0s","female",9);
-  delayPop(0,"90s","male",10);
-  delayPop(0,"80s","male",11);
-  delayPop(0,"70s","male",12);
-  delayPop(0,"60s","male",13);
-  delayPop(0,"50s","male",14);
-  delayPop(0,"40s","male",15);
-  delayPop(0,"30s","male",16);
-  delayPop(0,"20s","male",17);
-  delayPop(0,"10s","male",18);
-  delayPop(0,"0s","male",19);
+  activate = true;
+  chartStop.style.display = "";
+  chartStart.style.display = "none";
+  audio.play();
+  delayPop(0,"90s","male",0);
+  delayPop(0,"80s","male",1);
+  delayPop(0,"70s","male",2);
+  delayPop(0,"60s","male",3);
+  delayPop(0,"50s","male",4);
+  delayPop(0,"40s","male",5);
+  delayPop(0,"30s","male",6);
+  delayPop(0,"20s","male",7);
+  delayPop(0,"10s","male",8);
+  delayPop(0,"0s","male",9);
+  delayPop(0,"90s","female",10);
+  delayPop(0,"80s","female",11);
+  delayPop(0,"70s","female",12);
+  delayPop(0,"60s","female",13);
+  delayPop(0,"50s","female",14);
+  delayPop(0,"40s","female",15);
+  delayPop(0,"30s","female",16);
+  delayPop(0,"20s","female",17);
+  delayPop(0,"10s","female",18);
+  delayPop(0,"0s","female",19);
   delayYear(0);
   delayTotal(0);
   delayAverage(0);
   delayAging(0);
 }
 
+function chart_start(){
+  activate = true;
+  chartStop.style.display = "";
+  chartStart.style.display = "none";
+  chartResume.style.opacity = "0";
+  chartResume.style.pointerEvents = "none"
+  dropUp.style.opacity="0"
+  dropDown.style.opacity="0"
+  audio.play();
+  delayPop(yearNumCount,"90s","male",0);
+  delayPop(yearNumCount,"80s","male",1);
+  delayPop(yearNumCount,"70s","male",2);
+  delayPop(yearNumCount,"60s","male",3);
+  delayPop(yearNumCount,"50s","male",4);
+  delayPop(yearNumCount,"40s","male",5);
+  delayPop(yearNumCount,"30s","male",6);
+  delayPop(yearNumCount,"20s","male",7);
+  delayPop(yearNumCount,"10s","male",8);
+  delayPop(yearNumCount,"0s","male",9);
+  delayPop(yearNumCount,"90s","female",10);
+  delayPop(yearNumCount,"80s","female",11);
+  delayPop(yearNumCount,"70s","female",12);
+  delayPop(yearNumCount,"60s","female",13);
+  delayPop(yearNumCount,"50s","female",14);
+  delayPop(yearNumCount,"40s","female",15);
+  delayPop(yearNumCount,"30s","female",16);
+  delayPop(yearNumCount,"20s","female",17);
+  delayPop(yearNumCount,"10s","female",18);
+  delayPop(yearNumCount,"0s","female",19);
+  delayYear(yearNumCount);
+  delayTotal(yearNumCount);
+  delayAverage(yearNumCount);
+  delayAging(yearNumCount);
+}
+
 
 
 console.log(total_data[0])
 
+function stop() {
+  
+  activate = false;
 
-
+  chartStop.style.display = "none";
+  // audio.pause();
+  // audio.currentTime=0;
+}
 
 function delayYear(d) {
-  countYear(d);
-  if(d==14){
-    return false;
+  if(d==14 || activate==false){
+    audio.pause();
+    audio.currentTime=0;
+    chartStop.style.display = "none";
+    chartStart.style.display="";
+    chartStart.innerHTML = "처음부터";
+    if(d==14&&activate==true){
+      chartResume.style.opacity = '0';
+      chartResume.style.pointerEvents = 'none';
+    } else if(d!=14&&activate==false){
+      chartResume.style.opacity = '1';
+      chartResume.style.pointerEvents = 'auto';
+      console.log('hi')
+    };
+
+    dropUp.style.display = "";
+    dropDown.style.display = "";
+    yearNumCount=(Number(year.innerHTML)-1950)/5;
+    return false; 
   }
+  countYear(d);
   sleep(5000).then(() => delayYear(d+1));
 }
 
 function delayTotal(d) {
-  countTotal(d);
-  if(d==13){
+  if(d==14 || activate==false){
     return false;
   }
+  countTotal(d);
   sleep(5000).then(() => delayTotal(d+1));
 }
 
 function delayAverage(d){
-  countAverage(d);
-  if(d==13){
+  if(d==14 || activate==false){
     return false;
   }
+  countAverage(d);
   sleep(5000).then(() => delayAverage(d+1));
 }
 
 function delayAging(d){
-  countAging(d);
-  if(d==13){
+  if(d==14 || activate==false){
     return false;
   }
+  countAging(d);
   sleep(5000).then(() => delayAging(d+1));
 }
 
 // 5초마다 숫자 카운팅 이어서하기 
 function delayPop(order,age,sex,pos) {
-  countIni(order,age,sex,pos);
-  if(order==14){
+  if(order==14 || activate==false){
     return false;
   }
+  countIni(order,age,sex,pos);
   console.log("complete")
   sleep(5000).then(() => delayPop(order+1,age,sex,pos));
 }
+
+chartStart.addEventListener('click',()=>{
+  if(chartStart.innerHTML=="처음부터"){
+    yearNumCount=0;
+    chartStart.innerHTML="시작하기"
+    dropUp.style.opacity="1"
+    dropDown.style.opacity="1"
+    chartResume.style.opacity = "0";
+    chartResume.style.pointerEvents = "none"
+    year.innerHTML = 1950;
+    eachYearChart(0);
+  } else{
+    chart_start()
+  }
+})
+
 
 
 // order: 연도, age: 나이, sex:성별, pos:입력값위치 
@@ -121,7 +212,7 @@ function countIni(order,age,sex,pos) {
       maximumFractionDigits: 0
     });
     num[pos].innerHTML = x.toString();
-    chart[pos].style.width = startNum/70000 + '%';
+    chart[pos].style.width = startNum/58000 + '%';
     // if already updated the endNum, stop
     if(startNum<=endNum){
       if (startNum >= endNum) clearInterval(handle);
@@ -231,6 +322,409 @@ function countAging(counting) {
     startNum = Math.min(startNum, endNum);
   }, resolutionMS);
 };
+
+// 볼륨관련 함수
+volumeOff.style.display='none';
+
+volumeUp.addEventListener('click',()=>{
+  volumeUp.style.display = 'none';
+  volumeOff.style.display = '';
+  audio.volume = 0;
+})
+
+volumeOff.addEventListener('click',()=>{
+  volumeUp.style.display = '';
+  volumeOff.style.display = 'none';
+  audio.volume = 1;
+})
+
+// 년도 위,아래 토글
+const dropUp = document.querySelector('.drop__up');
+const dropDown = document.querySelector('.drop__down');
+let yearNum = Number(year.innerHTML)
+
+
+dropUp.addEventListener('click',()=>{
+  if(yearNum == 2020) {
+    yearNumCount = 0
+    yearNum = 1950;
+  } else{
+    yearNumCount = yearNumCount+1;
+    yearNum = yearNum + 5;
+  }
+  
+  year.innerHTML = yearNum.toString();
+  console.log(yearNumCount);
+  eachYearChart(yearNumCount);
+})
+
+dropDown.addEventListener('click',()=>{
+  if(yearNum == 1950) {
+    yearNumCount = 14;
+    yearNum = 2020;
+  } else{
+    yearNumCount = yearNumCount-1
+    yearNum = yearNum-5;
+  }
+  console.log(yearNum);
+  year.innerHTML = yearNum.toString();
+  console.log(yearNumCount);
+  eachYearChart(yearNumCount);
+})
+
+function eachYearChart(x) {
+  num[0].innerHTML = Math.floor(female_data[x]["90s"]*1000)
+  num[1].innerHTML = Math.floor(female_data[x]["80s"]*1000)
+  num[2].innerHTML = Math.floor(female_data[x]["70s"]*1000)
+  num[3].innerHTML = Math.floor(female_data[x]["60s"]*1000)
+  num[4].innerHTML = Math.floor(female_data[x]["50s"]*1000)
+  num[5].innerHTML = Math.floor(female_data[x]["40s"]*1000)
+  num[6].innerHTML = Math.floor(female_data[x]["30s"]*1000)
+  num[7].innerHTML = Math.floor(female_data[x]["20s"]*1000)
+  num[8].innerHTML = Math.floor(female_data[x]["10s"]*1000)
+  num[9].innerHTML = Math.floor(female_data[x]["0s"]*1000)
+  num[10].innerHTML = Math.floor(male_data[x]["90s"]*1000)
+  num[11].innerHTML = Math.floor(male_data[x]["80s"]*1000)
+  num[12].innerHTML = Math.floor(male_data[x]["70s"]*1000)
+  num[13].innerHTML = Math.floor(male_data[x]["60s"]*1000)
+  num[14].innerHTML = Math.floor(male_data[x]["50s"]*1000)
+  num[15].innerHTML = Math.floor(male_data[x]["40s"]*1000)
+  num[16].innerHTML = Math.floor(male_data[x]["30s"]*1000)
+  num[17].innerHTML = Math.floor(male_data[x]["20s"]*1000)
+  num[18].innerHTML = Math.floor(male_data[x]["10s"]*1000)
+  num[19].innerHTML = Math.floor(male_data[x]["0s"]*1000)
+  chart[0].style.width = Math.floor(female_data[x]["90s"]*1000)/58000 + '%'
+  chart[1].style.width = Math.floor(female_data[x]["80s"]*1000)/58000 + '%'
+  chart[2].style.width = Math.floor(female_data[x]["70s"]*1000)/58000 + '%'
+  chart[3].style.width = Math.floor(female_data[x]["60s"]*1000)/58000 + '%'
+  chart[4].style.width = Math.floor(female_data[x]["50s"]*1000)/58000 + '%'
+  chart[5].style.width = Math.floor(female_data[x]["40s"]*1000)/58000 + '%'
+  chart[6].style.width = Math.floor(female_data[x]["30s"]*1000)/58000 + '%'
+  chart[7].style.width = Math.floor(female_data[x]["20s"]*1000)/58000 + '%'
+  chart[8].style.width = Math.floor(female_data[x]["10s"]*1000)/58000 + '%'
+  chart[9].style.width = Math.floor(female_data[x]["0s"]*1000)/58000 + '%'
+  chart[10].style.width = Math.floor(male_data[x]["90s"]*1000)/58000 + '%'
+  chart[11].style.width = Math.floor(male_data[x]["80s"]*1000)/58000 + '%'
+  chart[12].style.width = Math.floor(male_data[x]["70s"]*1000)/58000 + '%'
+  chart[13].style.width = Math.floor(male_data[x]["60s"]*1000)/58000 + '%'
+  chart[14].style.width = Math.floor(male_data[x]["50s"]*1000)/58000 + '%'
+  chart[15].style.width = Math.floor(male_data[x]["40s"]*1000)/58000 + '%'
+  chart[16].style.width = Math.floor(male_data[x]["30s"]*1000)/58000 + '%'
+  chart[17].style.width = Math.floor(male_data[x]["20s"]*1000)/58000 + '%'
+  chart[18].style.width = Math.floor(male_data[x]["10s"]*1000)/58000 + '%'
+  chart[19].style.width = Math.floor(male_data[x]["0s"]*1000)/58000 + '%'
+  total.innerHTML = (total_data[x]*1000).toString();
+  averageAge.innerHTML = averageage_data[x].toFixed(1);
+  aging.innerHTML = (aging_data[x].toFixed(1)).toString()+"%";
+}
+// 차트 디폴트값
+num[0].innerHTML = Math.floor(female_data[0]["90s"]*1000).toString()
+num[1].innerHTML = Math.floor(female_data[0]["80s"]*1000).toString()
+num[2].innerHTML = Math.floor(female_data[0]["70s"]*1000).toString()
+num[3].innerHTML = Math.floor(female_data[0]["60s"]*1000).toString()
+num[4].innerHTML = Math.floor(female_data[0]["50s"]*1000).toString()
+num[5].innerHTML = Math.floor(female_data[0]["40s"]*1000).toString()
+num[6].innerHTML = Math.floor(female_data[0]["30s"]*1000).toString()
+num[7].innerHTML = Math.floor(female_data[0]["20s"]*1000).toString()
+num[8].innerHTML = Math.floor(female_data[0]["10s"]*1000).toString()
+num[9].innerHTML = Math.floor(female_data[0]["0s"]*1000).toString()
+num[10].innerHTML = Math.floor(male_data[0]["90s"]*1000).toString()
+num[11].innerHTML = Math.floor(male_data[0]["80s"]*1000).toString()
+num[12].innerHTML = Math.floor(male_data[0]["70s"]*1000).toString()
+num[13].innerHTML = Math.floor(male_data[0]["60s"]*1000).toString()
+num[14].innerHTML = Math.floor(male_data[0]["50s"]*1000).toString()
+num[15].innerHTML = Math.floor(male_data[0]["40s"]*1000).toString()
+num[16].innerHTML = Math.floor(male_data[0]["30s"]*1000).toString()
+num[17].innerHTML = Math.floor(male_data[0]["20s"]*1000).toString()
+num[18].innerHTML = Math.floor(male_data[0]["10s"]*1000).toString()
+num[19].innerHTML = Math.floor(male_data[0]["0s"]*1000).toString()
+chart[0].style.width = Math.floor(female_data[0]["90s"]*1000)/58000 + '%'
+chart[1].style.width = Math.floor(female_data[0]["80s"]*1000)/58000 + '%'
+chart[2].style.width = Math.floor(female_data[0]["70s"]*1000)/58000 + '%'
+chart[3].style.width = Math.floor(female_data[0]["60s"]*1000)/58000 + '%'
+chart[4].style.width = Math.floor(female_data[0]["50s"]*1000)/58000 + '%'
+chart[5].style.width = Math.floor(female_data[0]["40s"]*1000)/58000 + '%'
+chart[6].style.width = Math.floor(female_data[0]["30s"]*1000)/58000 + '%'
+chart[7].style.width = Math.floor(female_data[0]["20s"]*1000)/58000 + '%'
+chart[8].style.width = Math.floor(female_data[0]["10s"]*1000)/58000 + '%'
+chart[9].style.width = Math.floor(female_data[0]["0s"]*1000)/58000 + '%'
+chart[10].style.width = Math.floor(male_data[0]["90s"]*1000)/58000 + '%'
+chart[11].style.width = Math.floor(male_data[0]["80s"]*1000)/58000 + '%'
+chart[12].style.width = Math.floor(male_data[0]["70s"]*1000)/58000 + '%'
+chart[13].style.width = Math.floor(male_data[0]["60s"]*1000)/58000 + '%'
+chart[14].style.width = Math.floor(male_data[0]["50s"]*1000)/58000 + '%'
+chart[15].style.width = Math.floor(male_data[0]["40s"]*1000)/58000 + '%'
+chart[16].style.width = Math.floor(male_data[0]["30s"]*1000)/58000 + '%'
+chart[17].style.width = Math.floor(male_data[0]["20s"]*1000)/58000 + '%'
+chart[18].style.width = Math.floor(male_data[0]["10s"]*1000)/58000 + '%'
+chart[19].style.width = Math.floor(male_data[0]["0s"]*1000)/58000 + '%'
+total.innerHTML = (total_data[0]*1000).toString();
+averageAge.innerHTML = averageage_data[0].toFixed(1);
+aging.innerHTML = (aging_data[0].toFixed(1)).toString()+"%";
+
+
+// 팝업차트 
+
+// 1.드래그앤 드롭
+dragElement(document.getElementById("popup1"));
+dragElement(document.getElementById("popup2"));
+dragElement(document.getElementById("popup3"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  // 이동 목적지
+  if (document.querySelector(elmnt.id + "header")) {
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // 시작지점 마우스좌표 얻기
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // 이동지점 마우스좌표 얻기
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // 이동지점 커서좌표 계산
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // 요소의 새 위치 설정
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* 마우스버튼 풀렸을 때, 이동 멈춤 */
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+// 2.팝업창 끄기 켜기
+const popupTotal = document.querySelector('.popup__total');
+const popupAverage = document.querySelector('.popup__average__age');
+const popupAging = document.querySelector('.popup__aging');
+const populationTitle = document.querySelector('.population__title');
+const averageAgeContainer = document.querySelector('.average__age');
+const agingContainer = document.querySelector('.aging__rate');
+const popupClose = document.querySelectorAll('.popup__close');
+const popupChart = document.querySelectorAll('.popup__chart');
+
+
+
+for(i=0;i<popupChart.length;i++){
+  popupChart[i].style.zIndex='1';
+}
+
+let zIndexVal = 1;
+
+
+popupChart[0].addEventListener('click',()=>{
+  zIndexVal = zIndexVal+1
+  popupChart[0].style.zIndex = zIndexVal.toString(); 
+})
+
+popupChart[1].addEventListener('click',()=>{
+  zIndexVal = zIndexVal+1
+  popupChart[1].style.zIndex = zIndexVal.toString(); 
+})
+
+popupChart[2].addEventListener('click',()=>{
+  zIndexVal = zIndexVal+1
+  popupChart[2].style.zIndex = zIndexVal.toString(); 
+})
+
+
+popupTotal.style.display='none';
+popupAverage.style.display='none';
+popupAging.style.display='none';
+
+populationTitle.addEventListener('click',()=>{
+  zIndexVal = zIndexVal+1
+  popupChart[1].style.zIndex = zIndexVal.toString(); 
+  popupTotal.style.display = '';
+  google.charts.setOnLoadCallback(drawBasicTotal);
+  
+})
+
+averageAgeContainer.addEventListener('click',()=>{
+  zIndexVal = zIndexVal+1
+  popupChart[0].style.zIndex = zIndexVal.toString(); 
+  popupAverage.style.display ='';
+  google.charts.setOnLoadCallback(drawBasicAv);
+})
+
+agingContainer.addEventListener('click',()=>{
+  zIndexVal = zIndexVal+1
+  popupChart[2].style.zIndex = zIndexVal.toString(); 
+  popupAging.style.display ='';
+  google.charts.setOnLoadCallback(drawBasicAging);
+})
+
+
+popupClose[0].addEventListener('click',()=>{
+  setTimeout(()=>{
+    popupAverage.style.display = 'none';
+  },1)})
+
+popupClose[1].addEventListener('click',()=>{
+  setTimeout(()=>{
+    popupTotal.style.display = 'none';
+  },1)
+  
+})
+
+popupClose[2].addEventListener('click',()=>{
+  setTimeout(()=>{
+    popupAging.style.display = 'none';
+  },1)
+  
+})
+
+
+
+// 구글차트
+
+google.charts.load('current', {packages: ['corechart', 'line']});
+
+
+function drawBasicAv() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'X');
+      data.addColumn('number', '평균 연령');
+
+      data.addRows([
+        ['1950',19.0],['1955',18.9],['1960',18.6],['1965',18.4],['1970',19.0],['1980',19.9],['1985',22.1],
+        ['1990',24.3],['1995',27.0],['2000',29.3],['2005',31.9],['2010',34.8],['2015',38.0],['2020',40.8]
+      ]);
+
+      var options = {
+        width:795,
+        height:560,
+        hAxis: {
+          title: '년도',
+          textStyle: {
+            fontSize: 11,
+            fontName: 'Arial',
+            italic: true,
+            bold: true
+          },
+        },
+        vAxis: {
+          
+          title: '평균 연령',
+          textStyle: {
+            bold:true
+          }
+          
+        }
+      }
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div_av'));
+
+      chart.draw(data, options);
+      window.addEventListener('resize',drawBasic,false);
+    }
+
+function drawBasicTotal() {
+
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'X');
+  data.addColumn('number', '총인구');
+
+  data.addRows([
+    ['1950',1921],['1955',2151],['1960',2533],['1965',2889],['1970',3219],['1980',3537],['1985',3804],
+    ['1990',4080],['1995',4291],['2000',4529],['2005',4737],['2010',4870],['2015',4954],['2020',5082]
+  ]);
+
+  
+
+  var options = {
+    width:795,
+    height:560,
+    hAxis: {
+      title: '년도',
+      textStyle: {
+        fontSize: 11,
+        fontName: 'Arial',
+        italic: true,
+        bold: true
+      },
+    },
+    vAxis: {
+      
+      title: '총인구 ( 만 )',
+      textStyle: {
+        bold:true
+      }
+      
+    }
+  }
+
+  var chart = new google.visualization.LineChart(document.getElementById('chart_div_total'));
+
+  chart.draw(data, options);
+  window.addEventListener('resize',drawBasic,false);
+}
+
+function drawBasicAging() {
+
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'X');
+  data.addColumn('number', '고령화');
+
+  data.addRows([
+    ['1950',3.0],['1955',3.4],['1960',3.5],['1965',3.6],['1970',3.6],['1980',3.9],['1985',4.3],
+    ['1990',4.7],['1995',5.5],['2000',6.4],['2005',7.7],['2010',9.7],['2015',12.0],['2020',14.8]
+  ]);
+
+
+  
+
+  var options = {
+    width:795,
+    height:560,
+    hAxis: {
+      title: '년도',
+      textStyle: {
+        fontSize: 11,
+        fontName: 'Arial',
+        italic: true,
+        bold:true
+      },
+    },
+    vAxis: {
+      
+      title: '고령화 ( % )',
+      textStyle: {
+        bold:true
+      }
+    }
+  }
+
+  var chart = new google.visualization.LineChart(document.getElementById('chart_div_aging'));
+
+  chart.draw(data, options);
+  window.addEventListener('resize',drawBasic,false);
+}
+
+
+
+
+
+
+
 // function countSum(counting) {
 //   let startNum = Math.floor(male_data[order][age])*1000+,
 //   endNum = data[counting+1]["year"],
