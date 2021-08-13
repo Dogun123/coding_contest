@@ -138,6 +138,41 @@ p {
   color: cyan;
 }
 
+/* keyframes */
+
+.blink__animation{
+  animation: blinkAnimation 1.5s linear infinite;
+}
+
+@keyframes blinkAnimation {
+  0% {
+    border: 2.5px solid white;
+  }
+  50% {
+    border: 2.5px solid red;
+  }
+  100% {
+    border: 2.5px solid white;
+  }
+
+}
+
+@keyframes skipAnimation {
+  0%{
+    color:white;
+  }
+  
+  50%{
+    color:var(--color-blue);
+  }
+
+  100%{
+    color:white;
+  }
+  
+    
+}
+
 /* Navbar */
 
 #navbar {
@@ -816,8 +851,12 @@ p {
 .popu__summary__top {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 10px;
+  padding: 10px 0px;
 }
+
+
+
+
 
 .popu__summary__end {
   display: flex;
@@ -841,6 +880,8 @@ p {
   border: 1.5px solid blanchedalmond;
   padding: 0px 10px;
 }
+
+
 
 .population__title:hover {
   border : 1.5px solid var(--color-blue);
@@ -878,7 +919,7 @@ p {
   width:800px;
   height: 600px;
   position:absolute;
-  top:80px;
+  top:150px;
   border:1px solid var(--color-black);
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
@@ -1092,25 +1133,29 @@ p {
 }
 
 .population__year__arrow{
+  text-align: center;
   margin:auto;
   width:32px;
   position:relative;
   left:62px;
   bottom:132px;
+  
 }
 
 .population__year__arrow__icon{
   font-size: 32px;
+  
 }
 
 /* 펭귄 대사 */
 .gamerule {
+  z-index: 100;
   display: flex;
   flex-direction: row;
   position: fixed;
   width: 100%;
-  min-height: 173px;
-  height: 30%;
+  min-height: 220px;
+  height: 220px;
   background: rgba(0, 0, 0, 0.7);
   left: 0;
   bottom: 0;
@@ -1120,7 +1165,7 @@ p {
 .script__arrow__container{
   display: flex;
   position: relative;
-  left: 93%;
+  left: 91%;
   bottom: 30px;
   color: black;
   margin: 0 auto;
@@ -1132,7 +1177,6 @@ p {
   width:100px;
   border:1px solid var(--color-grey);
   border-radius: 3px;
-  border-bottom: none;
   height: 30px;
   text-align: center;
   line-height: 30px;
@@ -1161,10 +1205,11 @@ p {
   display: flex;
   text-align: left;
   width:80%;
-  height: 120px;
+  height: 110px;
 }
 
-.script__button__box{
+.script__button__box,
+.skip__button__box{
   display: flex;
   width:100%;
   justify-content: flex-end;
@@ -1180,34 +1225,27 @@ p {
   width: 150px;
 }
 
-.skip__button{
+.skip__button,
+.back__button{
   text-align: center;
   line-height: 50px;
-  margin-left: 30px;
-  margin-right: 100px;
-  font-size: 25px;
+  margin-left: 5px;
+  margin-right: 20px;
+  font-size: 20px;
   cursor: pointer;
+}
+
+.skip__button{
+  pointer-events: none;
 }
 
 .skip__animation{
   animation: skipAnimation 2.5s linear infinite;
+  pointer-events: auto;
 }
 
-@keyframes skipAnimation {
-  0%{
-    color:white;
-  }
-  
-  50%{
-    color:var(--color-blue);
-  }
 
-  100%{
-    color:white;
-  }
-  
-    
-}
+
 
 
 

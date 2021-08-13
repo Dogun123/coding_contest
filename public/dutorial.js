@@ -37,36 +37,38 @@ chartResume.style.pointerEvents = "none"
 let activate = true;
 var audio = new Audio('/music/BattleofKings.mp3');
       
-function chart_start(){
-  activate = true;
-  chartStop.style.display = "";
-  chartStart.style.display = "none";
-  audio.play();
-  delayPop(0,"90s","male",0);
-  delayPop(0,"80s","male",1);
-  delayPop(0,"70s","male",2);
-  delayPop(0,"60s","male",3);
-  delayPop(0,"50s","male",4);
-  delayPop(0,"40s","male",5);
-  delayPop(0,"30s","male",6);
-  delayPop(0,"20s","male",7);
-  delayPop(0,"10s","male",8);
-  delayPop(0,"0s","male",9);
-  delayPop(0,"90s","female",10);
-  delayPop(0,"80s","female",11);
-  delayPop(0,"70s","female",12);
-  delayPop(0,"60s","female",13);
-  delayPop(0,"50s","female",14);
-  delayPop(0,"40s","female",15);
-  delayPop(0,"30s","female",16);
-  delayPop(0,"20s","female",17);
-  delayPop(0,"10s","female",18);
-  delayPop(0,"0s","female",19);
-  delayYear(0);
-  delayTotal(0);
-  delayAverage(0);
-  delayAging(0);
-}
+// function chart_start(){
+//   activate = true;
+//   chartStop.style.display = "";
+//   chartStart.style.display = "none";
+//   audio.play();
+//   delayPop(0,"90s","male",0);
+//   delayPop(0,"80s","male",1);
+//   delayPop(0,"70s","male",2);
+//   delayPop(0,"60s","male",3);
+//   delayPop(0,"50s","male",4);
+//   delayPop(0,"40s","male",5);
+//   delayPop(0,"30s","male",6);
+//   delayPop(0,"20s","male",7);
+//   delayPop(0,"10s","male",8);
+//   delayPop(0,"0s","male",9);
+//   delayPop(0,"90s","female",10);
+//   delayPop(0,"80s","female",11);
+//   delayPop(0,"70s","female",12);
+//   delayPop(0,"60s","female",13);
+//   delayPop(0,"50s","female",14);
+//   delayPop(0,"40s","female",15);
+//   delayPop(0,"30s","female",16);
+//   delayPop(0,"20s","female",17);
+//   delayPop(0,"10s","female",18);
+//   delayPop(0,"0s","female",19);
+//   delayYear(0);
+//   delayTotal(0);
+//   delayAverage(0);
+//   delayAging(0);
+
+
+// }
 
 function chart_start(){
   activate = true;
@@ -101,6 +103,11 @@ function chart_start(){
   delayTotal(yearNumCount);
   delayAverage(yearNumCount);
   delayAging(yearNumCount);
+
+  if(typingCount==14){
+    goNext();
+  }
+
 }
 
 
@@ -114,6 +121,9 @@ function stop() {
   chartStop.style.display = "none";
   // audio.pause();
   // audio.currentTime=0;
+  if(typingCount==11){
+    goNext();
+  }
 }
 
 function delayYear(d) {
@@ -122,7 +132,7 @@ function delayYear(d) {
     audio.currentTime=0;
     chartStop.style.display = "none";
     chartStart.style.display="";
-    chartStart.innerHTML = "처음부터";
+    chartStart.innerHTML = "처음으로";
     if(d==14&&activate==true){
       chartResume.style.opacity = '0';
       chartResume.style.pointerEvents = 'none';
@@ -176,7 +186,7 @@ function delayPop(order,age,sex,pos) {
 }
 
 chartStart.addEventListener('click',()=>{
-  if(chartStart.innerHTML=="처음부터"){
+  if(chartStart.innerHTML=="처음으로"){
     yearNumCount=0;
     chartStart.innerHTML="시작하기"
     dropUp.style.opacity="1"
@@ -188,7 +198,13 @@ chartStart.addEventListener('click',()=>{
   } else{
     chart_start()
   }
+
+  if(typingCount==9){
+    goNext();
+  }
 })
+
+
 
 
 
@@ -356,6 +372,10 @@ dropUp.addEventListener('click',()=>{
   year.innerHTML = yearNum.toString();
   console.log(yearNumCount);
   eachYearChart(yearNumCount);
+
+  if(typingCount==7){
+    goNext();
+  }
 })
 
 dropDown.addEventListener('click',()=>{
@@ -370,6 +390,10 @@ dropDown.addEventListener('click',()=>{
   year.innerHTML = yearNum.toString();
   console.log(yearNumCount);
   eachYearChart(yearNumCount);
+
+  if(typingCount==7){
+    goNext();
+  }
 })
 
 function eachYearChart(x) {
@@ -634,7 +658,7 @@ function drawBasicAv() {
       var chart = new google.visualization.LineChart(document.getElementById('chart_div_av'));
 
       chart.draw(data, options);
-      window.addEventListener('resize',drawBasic,false);
+      window.addEventListener('resize',drawBasicAv,false);
     }
 
 function drawBasicTotal() {
@@ -675,7 +699,7 @@ function drawBasicTotal() {
   var chart = new google.visualization.LineChart(document.getElementById('chart_div_total'));
 
   chart.draw(data, options);
-  window.addEventListener('resize',drawBasic,false);
+  window.addEventListener('resize',drawBasicTotal,false);
 }
 
 function drawBasicAging() {
@@ -716,48 +740,67 @@ function drawBasicAging() {
   var chart = new google.visualization.LineChart(document.getElementById('chart_div_aging'));
 
   chart.draw(data, options);
-  window.addEventListener('resize',drawBasic,false);
+  window.addEventListener('resize',drawBasicAging,false);
 }
 
-
-
-
-
-
-
-// function countSum(counting) {
-//   let startNum = Math.floor(male_data[order][age])*1000+,
-//   endNum = data[counting+1]["year"],
-//   deltaNum = (endNum - startNum) / (1000 / resolutionMS) / nSecond;
-//   console.log(startNum);
-//   var handle = setInterval(() => {
-//     var x = startNum.toLocaleString(undefined, {
-//       minimumFractionDigits: 0,
-//       maximumFractionDigits: 0
-//     });
-//     year.innerHTML = x.toString().replace(",", "");
-    
-//     // if already updated the endNum, stop
-//     if (startNum >= endNum) clearInterval(handle);
-    
-//     startNum += deltaNum;
-//     startNum = Math.min(startNum, endNum);
-//   }, resolutionMS);
-// };
 
 
 // 스크립트 버튼
 const skipButton=document.querySelector(".skip__button");
 const scriptButton = document.querySelector(".script_button");
+const backButton=document.querySelector(".back__button");
+const popuTop=document.querySelector('.popu__summary__top');
+const averageAgeBox=document.querySelector('.average__age');
+const character=document.querySelector('.character');
+const scriptArrowContainer=document.querySelector('.script__arrow__container');
+const yearArrow=document.querySelector('.population__year__arrow');
+
+
 scriptButton.style.opacity='0';
 scriptButton.style.pointerEvents='none';
 
+// 스크립트 접기,펼치기
+const scriptFold=document.querySelector('.script__arrow__down');
+const scriptOpen=document.querySelector('.script__arrow__up');
+const scriptContainer=document.querySelector('.gamerule');
+
+scriptOpen.style.display='none';
+
+scriptFold.addEventListener('click',()=>{
+  scriptFold.style.display = 'none';
+  scriptOpen.style.display='';
+  if(scriptTop==false){
+    scriptContainer.style.top='95%';
+  } else{
+    console.log('hi');
+    scriptContainer.style.top='-185px';
+  }
+})
+
+scriptOpen.addEventListener('click',()=>{
+  scriptFold.style.display = '';
+  scriptOpen.style.display='none';
+  if(scriptTop==false){
+    scriptContainer.style.top='';
+
+  } else{
+    console.log('hi');
+    scriptContainer.style.top='0';
+  }
+
+})
 
 // 타이핑 효과
-const content =["안녕 나는 펭두야!","지금부터 우리가 사용하게 될 인구 피라미드 차트 사용방법을 알려줄게.",'인구 피라미드 차트 위를 보면 평균연령, 총 인구수, 고령화 비율을 확인할 수 있어.'];
+const content =["안녕 나는 펭두야!","지금부터 우리가 사용하게 될 인구 피라미드 차트 사용방법을 알려줄게.","이 부분은 연도별 '평균연령', '총 인구수', '고령화 비율'을 보여줘."
+,"지금은 1950년도의 자료를 나타내고 있어.","박스 안의 텍스트를 클릭하면 각각의 그래프를 확인할 수 있어. ",
+"예를 들어 '총인구' 텍스트를 클릭하면 대한민국 총 인구수 변화를 나타내는 선 그래프가 나와!","이제 인구 피라미드 조작법에 대해 알아보자!",
+"아래에 보이는 화살표를 누르면 원하는 년도의 인구 피라미드 그래프를 볼 수 있어. 한번 눌러봐!","잘 했어! 그래프가 바뀌는게 보이지?",
+"다음으로 '시작하기'버튼을 클릭해봐!","우와! 그래프가 움직이지?","이제 '중단하기'를 눌러서 움직이는 그래프를 정지시켜 보자!","자! '중단하기'를 클릭하면 이렇게 두 개의 버튼이 생겨.",
+"'처음으로'를 클릭하면 처음 상태로 돌아가고 '이어하기'를 클릭하면 정지한 시점부터 이어서 그래프를 보여줘.","그럼 마지막으로 '이어하기'를 클릭해 보자!","그래프가 정지했던 시점부터 이어서 시작한다!","이제 인구 피라미드 튜토리얼이 끝났어~"];
 const text = document.querySelector(".script");
 const chartSection = document.querySelector("#chart");
 const chartTop = document.querySelector(".popu__summary__top");
+
 let index = 0;
 let isStop = false;
 
@@ -772,77 +815,137 @@ function typing(){
     clearInterval(typing);
     
   }
+// 바로넘어가기 방지(버튼을 눌렀을때만 넘어가도록)
+  if(typingCount==7 || typingCount==9 || typingCount==11 ||typingCount==14){
+    skipButton.classList.remove('skip__animation');
+  }
 }
 
 
-
-setInterval(typing, 100);
-
-skipButton.addEventListener('click',()=>{
+function goNext(){
   skipButton.classList.remove('skip__animation')
   index=0;
   text.textContent = "";
   typingCount++;
   setInterval(typing, 100);
-  if(typingCount==2){
-    chartTop.style.backgroundColor="white";
-    console.log("hi");
-    
+  typingAnimation();
+}
+
+function goBack(){
+  skipButton.classList.remove('skip__animation')
+  index=0;
+  text.textContent="";
+  typingCount--;
+  setInterval(typing, 100);
+  typingAnimation();
+}
+
+
+setInterval(typing, 100);
+
+skipButton.addEventListener('click',()=>{
+  if(typingCount!=7){
+    goNext();
   }
+  
 })
 
-
-
-
-
-// 스크립트 접기,펼치기
-scriptFold=document.querySelector('.script__arrow__down');
-scriptOpen=document.querySelector('.script__arrow__up');
-scriptContainer=document.querySelector('.gamerule');
-
-scriptOpen.style.display='none';
-
-scriptFold.addEventListener('click',()=>{
-  scriptContainer.style.top='95%';
-  scriptFold.style.display = 'none';
-  scriptOpen.style.display='';
+backButton.addEventListener('click',()=>{
+  if(typingCount>=12){
+    typingCount=10;
+    yearNumCount=0;
+    chartStart.innerHTML="시작하기"
+    dropUp.style.opacity="1"
+    dropDown.style.opacity="1"
+    chartResume.style.opacity = "0";
+    chartResume.style.pointerEvents = "none"
+    year.innerHTML = 1950;
+    eachYearChart(0);
+  }
+  goBack();
 })
 
-scriptOpen.addEventListener('click',()=>{
-  scriptContainer.style.top='70%';
-  scriptFold.style.display = '';
-  scriptOpen.style.display='none';
-})
+function typingAnimation(){
+  if(typingCount==2 || typingCount==3 || typingCount==4 || typingCount==5){
+    chartTop.style.backgroundColor="white";
+  } else{
+    chartTop.style.backgroundColor="blanchedalmond";
+  }
 
+  if(typingCount==2 || typingCount==3){
+    popuTop.classList.add('blink__animation');
+  } else{
+    popuTop.classList.remove('blink__animation');
+  }
 
+  if(typingCount==4){
+    averageAgeBox.classList.add('blink__animation');
+    agingContainer.classList.add('blink__animation');
+    populationTitle.classList.add('blink__animation');
+  } else{
+    averageAgeBox.classList.remove('blink__animation');
+    agingContainer.classList.remove('blink__animation');
+    populationTitle.classList.remove('blink__animation');
+  }
 
+  if(typingCount==5){
+      populationTitle.classList.add('blink__animation');
+      setTimeout(()=>{
+      popupTotal.style.display ='';
+      google.charts.setOnLoadCallback(drawBasicTotal);
+    },1000); 
+  } else{
+    popupTotal.style.display ='none';
+  }
 
+  if(typingCount>=6){
+    scriptUp();
+  } else{
+    scriptDown();
+  }
 
+  if(typingCount==7 || typingCount==8){
+    yearArrow.classList.add('blink__animation');
+  } else{
+    yearArrow.classList.remove('blink__animation');
+  }
 
+  if(typingCount==9 || typingCount==12 || typingCount==13){
+    chartStart.classList.add('blink__animation');
+  } else{
+    chartStart.classList.remove('blink__animation');
+  }
 
+  if(typingCount==11){
+    chartStop.classList.add('blink__animation');
+  } else {
+    chartStop.classList.remove('blink__animation');
+  }
 
+  if(typingCount==12 || typingCOunt==13 ||typingCount==14){
+    chartResume.classList.add('blink__animation')
+  } else{
+    chartResume.classList.remove('blink__animation')
+  }
+// 220px
+}
 
+// 스크립트 위치 위로 or 아래로
+let scriptTop = false;
 
+function scriptUp() {
+  scriptContainer.style.top='0';
+  character.style.bottom='0px';
+  scriptArrowContainer.style.bottom='-219px';
+  scriptTop = true;
+}
 
-// function countSum(counting) {
-//   let startNum = Math.floor(male_data[order][age])*1000+,
-//   endNum = data[counting+1]["year"],
-//   deltaNum = (endNum - startNum) / (1000 / resolutionMS) / nSecond;
-//   console.log(startNum);
-//   var handle = setInterval(() => {
-//     var x = startNum.toLocaleString(undefined, {
-//       minimumFractionDigits: 0,
-//       maximumFractionDigits: 0
-//     });
-//     year.innerHTML = x.toString().replace(",", "");
-    
-//     // if already updated the endNum, stop
-//     if (startNum >= endNum) clearInterval(handle);
-    
-//     startNum += deltaNum;
-//     startNum = Math.min(startNum, endNum);
-//   }, resolutionMS);
-// };
+function scriptDown() {
+  scriptContainer.style.top='';
+  character.style.bottom='50px';
+  scriptArrowContainer.style.bottom='30px';
+  scriptTop = false;
+}
 
 
 
